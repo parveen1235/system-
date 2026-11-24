@@ -1,0 +1,10 @@
+{
+  "name": "Remix 16-09-2026",
+  "description": "Professional uPVC window and door CAD design software with mullions, 2mm gap multi-frame couplings, independent frame resizing, sash configurations, cutting lists, and BOM quotations.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

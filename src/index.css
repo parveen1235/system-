@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+  
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+
+  /* Light mode scrollbars */
+  .scrollbar-light::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+  }
+  .scrollbar-light::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  .scrollbar-light::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+.cad-grid-pattern {
+  background-size: 20px 20px, 100px 100px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+.cad-blueprint-pattern {
+  background-color: #0b1e3b;
+  background-size: 20px 20px, 100px 100px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+}
+
+.cad-light-pattern {
+  background-color: #f8fafc;
+  background-size: 20px 20px, 100px 100px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
+}
+
+/* PDF Export Mode styles applied during PDF generation */
+.pdf-export-mode {
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  padding: 24px 32px !important;
+  box-sizing: border-box !important;
+  width: 1080px !important;
+  max-width: 1080px !important;
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+.pdf-export-mode,
+.pdf-export-mode * {
+  overflow: visible !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+.pdf-export-mode .no-print,
+.pdf-export-mode .print\:hidden,
+.pdf-export-mode .pdf-export-hide,
+.pdf-export-mode button,
+.pdf-export-mode input[type="file"],
+.pdf-export-mode [role="button"] {
+  display: none !important;
+}
+
+.pdf-export-mode .pdf-export-show {
+  display: block !important;
+}
+
+.pdf-export-mode span.pdf-export-show,
+.pdf-export-mode strong.pdf-export-show,
+.pdf-export-mode div.pdf-export-show.inline,
+.pdf-export-mode div.pdf-export-show.inline-block {
+  display: inline-block !important;
+}
+
+.pdf-export-mode input,
+.pdf-export-mode textarea {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  resize: none !important;
+  box-shadow: none !important;
+  color: #0f172a !important;
+}
+
+.pdf-export-mode table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+.pdf-export-mode tr {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Ensure Commercial Summary & Footer never split across pages */
+.commercial-summary-wrapper,
+.commercial-summary-box,
+.quotation-footer-block,
+.page-break-inside-avoid,
+.pdf-export-mode .commercial-summary-wrapper,
+.pdf-export-mode .commercial-summary-box,
+.pdf-export-mode .quotation-footer-block {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+.pdf-export-mode .custom-quotation-sheet,
+.custom-quotation-sheet.pdf-export-mode {
+  padding: 16px 24px 16px 20px !important;
+  box-sizing: border-box !important;
+  gap: 12px !important;
+}
+
+.pdf-export-mode .custom-quotation-sheet header,
+.custom-quotation-sheet.pdf-export-mode header {
+  padding-bottom: 8px !important;
+}
+
+.pdf-export-mode .custom-quotation-sheet footer,
+.custom-quotation-sheet.pdf-export-mode footer {
+  padding-top: 8px !important;
+  gap: 10px !important;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 6mm 6mm 6mm 6mm;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* When printing from a modal or sheet, hide peer background views that don't contain the modal */
+  body:has(.fixed.inset-0) #root > div > *:not(:has(.fixed.inset-0)),
+  body:has(.fixed.inset-0) .min-h-screen > *:not(:has(.fixed.inset-0)),
+  body.is-printing-quotation #root > div > *:not(:has(.custom-quotation-sheet, .report-sheet, .fixed.inset-0)) {
+    display: none !important;
+  }
+
+  #root, #root > div {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    display: block !important;
+  }
+
+  /* Reset modal overlays and backdrops during print so they flow naturally */
+  .fixed.inset-0 {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
+    overflow: visible !important;
+    display: block !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .fixed.inset-0 > div {
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    color: #0f172a !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Allow containers to expand to multi-page print length */
+  div, main, section, article, .overflow-y-auto, .overflow-x-auto, .overflow-hidden {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .no-print, .print\:hidden, .pdf-export-hide, button, nav, input[type="file"], [role="button"] {
+    display: none !important;
+  }
+
+  .print-only, .print\:block, .pdf-export-show {
+    display: block !important;
+  }
+
+  span.pdf-export-show,
+  strong.pdf-export-show,
+  div.pdf-export-show.inline,
+  div.pdf-export-show.inline-block {
+    display: inline-block !important;
+  }
+
+  .custom-quotation-sheet,
+  .report-sheet,
+  #shri-balaji-quotation-sheet,
+  #project-report-content-sheet,
+  #proposal-printable-sheet,
+  #bom-printable-sheet,
+  #custom-quotation-printable-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  input, textarea {
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #0f172a !important;
+    -webkit-text-fill-color: #0f172a !important;
+    padding: 0 !important;
+    resize: none !important;
+  }
+
+  table {
+    page-break-inside: auto;
+    width: 100% !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: auto;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+}
+
